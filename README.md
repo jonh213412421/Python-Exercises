@@ -1,2 +1,2 @@
 # Exercises
-Exercises with libraries in python
+Multiple exercises with libraries in python
