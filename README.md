@@ -1,2 +1,2 @@
 # Exercises
-Multiple exercises and texts with libraries in python :blush:
+Multiple exercises and tests with libraries in python :blush:
