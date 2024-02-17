@@ -71,7 +71,6 @@ def test_window():
             word = words[i]
             Bar.delete(0, tkinter.END) #delete what was written before
             Bar.insert(0, word) #write next word
-
         except Exception as e:
             print(e)
     def last_word():
@@ -87,7 +86,6 @@ def test_window():
             word = words[i]
             Bar.delete(0, tkinter.END) #delete what was written before
             Bar.insert(0, word) #write last word
-
         except Exception as e:
             print(e)
     def go():
@@ -98,17 +96,22 @@ def test_window():
         print(f"pointer: {i}")
         print(f"array: {words}")
     window = tkinter.Tk()
-    window.geometry("1080x720")
-    window.title("test window")
-    Bar = tkinter.Entry(window, width=200)
+    screen_width = window.winfo_screenwidth()
+    print(screen_width)
+    screen_height = window.winfo_screenheight()
+    print(screen_height)
+    window.geometry(f"{screen_width}x{screen_height}")
+    window.state('normal') #start in small window
+    window.title("test window") #title
+    Bar = tkinter.Entry(window, justify='left')
+    Bar.place(relwidth=0.8) #relative width Bar
     Bar.insert(0,"type a word")
-    Bar.place(x=0, y=15)
-    Button_1 = tkinter.Button(window, text="next", command=next_word)
-    Button_1.place(x=1240, y=15)
-    Button_2 = tkinter.Button(window, text="last", command=last_word)
-    Button_2.place(x=1290, y=15)
-    Button_3 = tkinter.Button(window, text="go", command=go, width=10)
-    Button_3.place(x=540, y=45)
+    Button_1 = tkinter.Button(window, text="next", command=next_word) #place next button
+    Button_1.place(relx=0.83, rely=0) #relx = relativex and so on
+    Button_2 = tkinter.Button(window, text="last", command=last_word) #place last button
+    Button_2.place(relx=0.81, rely=0)
+    Button_3 = tkinter.Button(window, text="go", command=go, width=10) #place go button
+    Button_3.place(relx=0.5, rely=0.03)
     window.mainloop()
 
 test_window() #test the function you want
