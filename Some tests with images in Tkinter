@@ -15,7 +15,7 @@ def simple_show_hide_img():
     window.geometry("300x600")
     window.title("Image Example")
     # Load the image
-    img = Image.open("C:\\Users\\Administrator\\Downloads\\hamburguer-delicioso-isolado-no-fundo-branco.jpg").resize((300,600)) #resize img
+    img = Image.open("image.jpg").resize((300,600)) #resize img, replace with path to image file
     img = ImageTk.PhotoImage(img)
     # Create a label to display the image
     label = tk.Label(window, text="Click the button to show the image")
@@ -65,11 +65,11 @@ def show_array_of_images():
     window.title("img show")
     window.geometry("300x300")
     #put ico
-    ico_path = "C:\\Users\\Administrator\\Downloads\\hamburguer-delicioso-isolado-no-fundo-branco.jpg"
+    ico_path = "image.jpg" #replace with path to image
     ico = Image.open(ico_path)
     ico = ico.convert("RGBA")
     ico.save(ico_path.replace(".jpg", ".ico"), format="ICO", sizes=[(16,16)]) #convert ico file from jpg file
-    ico_path = "C:\\Users\\Administrator\\Downloads\\hamburguer-delicioso-isolado-no-fundo-branco.ico"
+    ico_path = "image.ico" #replace with path of output ico file
     window.iconbitmap(ico_path) #add ico file
     #buttons
     button1 = tk.Button(window, text=f'show img {i}', command=show_img)
