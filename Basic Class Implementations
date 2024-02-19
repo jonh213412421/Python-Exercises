@@ -59,5 +59,6 @@ class op:
                     print(resultado)
 
 #calling calculator
-op = op()
-op.numbers()
+if __name__ == "__main__":
+    op = op()
+    op.numbers()
