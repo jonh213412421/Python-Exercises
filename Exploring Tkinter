@@ -114,4 +114,5 @@ def test_window():
     Button_3.place(relx=0.5, rely=0.03)
     window.mainloop()
 
-test_window() #test the function you want
+if __name__ = '__main__':
+    test_window() #test the function you want
