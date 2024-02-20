@@ -82,4 +82,5 @@ def show_array_of_images():
     label.place(anchor='nw')
     window.mainloop()
 
-show_array_of_images() #test any function you want
+if __name__ == "__main__":
+    show_array_of_images() #test any function you want
