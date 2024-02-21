@@ -5,7 +5,7 @@ import plotly.express
 if __name__=="__main__":
     streamlit.set_page_config(layout="wide") #widens dashboard
     # test this file with "Banco Vtimas de Homicdio Consumado - Atualizado 11 - Novembro.xlsx"
-    dt = pandas.read_excel("C:\\Users\\Administrator\\PycharmProjects\\Exercises\\Banco Vtimas de Homicdio Consumado - Atualizado 11 - Novembro.xlsx", decimal=",", sheet_name="População - Municipio") #replace path to xml file, if decimal is ., replace that too
+    dt = pandas.read_excel("path to Banco Vtimas de Homicdio Consumado - Atualizado 11 - Novembro.xlsx", decimal=",", sheet_name="População - Municipio") #replace path to xml file, if decimal is ., change that too
     dt = dt.sort_values(by="MUNICÍPIO")
     municipio = streamlit.multiselect("MUNICÍPIO", dt["MUNICÍPIO"]) #creates select box
     filtered = dt[dt["MUNICÍPIO"].isin(municipio)] #filters selection to selected municipio
