@@ -138,9 +138,22 @@ def pressed_par():
 
 def pressed_endpar():
     global equation
+    # check if there is an open bracket
     for letter in equation:
         if letter == '(':
             equation = equation + ")"
+    screen.config(text=equation)
+    screen.update()
+
+def pressed_clear():
+    global equation
+    equation = ""
+    screen.config(text="0")
+    screen.update()
+
+def pressed_clearle():
+    global equation
+    equation = equation[0:-1]
     screen.config(text=equation)
     screen.update()
 
@@ -194,5 +207,9 @@ if __name__=='__main__':
     botao_par.place(relx=0.80, rely=0.3)
     botao_endpar = tkinter.Button(text=")", command=pressed_endpar, width=10)
     botao_endpar.place(relx=0.80, rely=0.4)
+    botao_clear = tkinter.Button(text="C", command=pressed_clear, width=10)
+    botao_clear.place(relx=0.80, rely=0.4)
+    botao_clearle = tkinter.Button(text="CLE", command=pressed_clearle, width=10)
+    botao_clearle.place(relx=0.80, rely=0.5)
     #mainwindow loop
     window.mainloop()
