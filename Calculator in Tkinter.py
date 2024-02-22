@@ -208,8 +208,8 @@ if __name__=='__main__':
     botao_endpar = tkinter.Button(text=")", command=pressed_endpar, width=10)
     botao_endpar.place(relx=0.80, rely=0.4)
     botao_clear = tkinter.Button(text="C", command=pressed_clear, width=10)
-    botao_clear.place(relx=0.80, rely=0.4)
+    botao_clear.place(relx=0.80, rely=0.5)
     botao_clearle = tkinter.Button(text="CLE", command=pressed_clearle, width=10)
-    botao_clearle.place(relx=0.80, rely=0.5)
+    botao_clearle.place(relx=0.80, rely=0.6)
     #mainwindow loop
     window.mainloop()
