@@ -7,55 +7,64 @@ equation = ""
 def pressed_1():
     global equation
     equation = equation + "1"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_2():
     global equation
     equation = equation + "2"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_3():
     global equation
     equation = equation + "3"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_4():
     global equation
     equation = equation + "4"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_5():
     global equation
     equation = equation + "5"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_6():
     global equation
     equation = equation + "6"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_7():
     global equation
     equation = equation + "7"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_8():
     global equation
     equation = equation + "8"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_9():
     global equation
     equation = equation + "9"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_0():
@@ -64,14 +73,18 @@ def pressed_0():
     equation = equation + "0"
     while equation.startswith("00"):
         equation= equation[1:]
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_equal():
     #handles multiple 0's in beginning equation
     global equation
+    entry_text = screen.get()
+    equation = entry_text
     equation = eval(equation)
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
     equation = ""
 
@@ -80,7 +93,8 @@ def pressed_plus():
     equation = equation + "+"
     if equation.startswith("+"):
         equation= equation[1:]
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_minus():
@@ -88,7 +102,8 @@ def pressed_minus():
     equation = equation + "-"
     if equation.startswith("-"):
         equation= equation[1:]
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_x():
@@ -96,7 +111,8 @@ def pressed_x():
     equation = equation + "*"
     if equation.startswith("*"):
         equation= equation[1:]
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_div():
@@ -104,7 +120,8 @@ def pressed_div():
     equation = equation + "/"
     if equation.startswith("/"):
         equation= equation[1:]
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_pow():
@@ -112,16 +129,19 @@ def pressed_pow():
     equation = equation + "**"
     if equation.startswith("**"):
         equation= equation[1:]
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_sqrt():
     global equation
     equation = math.sqrt(eval(equation))
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_par():
+    #handles many bracket situations
     global equation
     if equation.endswith("+"):
         equation = equation + "("
@@ -133,28 +153,33 @@ def pressed_par():
         equation = equation + "("
     if equation.endswith("**"):
         equation = equation + "("
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_endpar():
+    # handles closing bracket situations
     global equation
     # check if there is an open bracket
     for letter in equation:
         if letter == '(':
             equation = equation + ")"
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_clear():
     global equation
     equation = ""
-    screen.config(text="0")
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 def pressed_clearle():
     global equation
     equation = equation[0:-1]
-    screen.config(text=equation)
+    screen.delete(0, tkinter.END)
+    screen.insert(0, equation)
     screen.update()
 
 if __name__=='__main__':
@@ -166,7 +191,7 @@ if __name__=='__main__':
     #frame for screen
     frame = tkinter.Frame(window, bg="lightgray", height=0, pady=50, padx=0)
     frame.grid(row=1, column=0, columnspan=4, sticky="nsew")
-    screen = tkinter.Label(frame, text=0, width=88, highlightcolor='white')
+    screen = tkinter.Entry(frame, textvariable=equation, width=88, highlightcolor='white', font=("Arial", 16))
     screen.grid(row=0, column=0, columnspan=4, sticky="nsew")
     #put buttons
     botao1 = tkinter.Button(text="1", command=pressed_1, width=10)
