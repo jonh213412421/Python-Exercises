@@ -83,10 +83,10 @@ def pressed_equal():
     entry_text = screen.get()
     equation = entry_text
     equation = eval(equation)
+    equation = format(equation, ".10f")
     screen.delete(0, tkinter.END)
     screen.insert(0, equation)
     screen.update()
-    equation = ""
 
 def pressed_plus():
     global equation
