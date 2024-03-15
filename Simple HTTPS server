@@ -1,0 +1,26 @@
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+import ssl
+import socket
+import subprocess
+
+class ServerHTTPS(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/ipconfig':
+            ip = subprocess.run(args=["ipconfig"], capture_output=True, text=True)
+            print(ip.stdout)
+        else:
+            return SimpleHTTPRequestHandler.do_GET(self)
+
+class httpsipv6(HTTPServer):
+    address_family = socket.AF_INET6
+
+if __name__ == "__main__":
+    Port = 8000 //select port
+    server_address = ('::', Port)
+    certfile = "" //create and put path to cert file here
+    key = "" //create and put path to key file  here
+    httpd = httpsipv6(server_address, ServerHTTPS)
+    ctx = ssl.SSLContext(protocol=ssl.PROTOCOL_TLS_SERVER)
+    ctx.load_cert_chain(certfile=certfile, keyfile=key)
+    httpd.socket = ctx.wrap_socket(httpd.socket, server_side=True)
+    httpd.serve_forever()
