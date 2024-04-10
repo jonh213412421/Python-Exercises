@@ -4,7 +4,6 @@ import sys
 class calc:
         def eval_matrix(self):
         x = []
-        vars = []
         if len(sys.argv) < 3:
             print("Insuficient args")
         else:
