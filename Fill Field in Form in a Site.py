@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 # Configuração do WebDriver
 driver = webdriver.Chrome()
 
-# Abrir o site com o formulário
+# Abrir o site com o formulário. Neste exemplo, o site da receita
 driver.get("https://servicos.receita.fazenda.gov.br/Servicos/CPF/InscricaoPublica/inscricao.asp")
 
 # Espera carregar o elemento
