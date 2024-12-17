@@ -22,7 +22,7 @@ class RPN_calc:
             if self.op == "c":
                 self.stack.pop()
                 print(self.stack)
-            if len(self.stack) <= 1:
+            if (self.op == "+" or self.op == "-" or self.op == "*" or self.op == "/" or self.op == "**") and len(self.stack) <= 1:
                 print("Número de entradas insuficiente")
                 continue
             if self.op == "*":
@@ -64,6 +64,7 @@ class RPN_calc:
                     total **= float(num)
                 self.stack.clear()
                 self.stack.append(f"resultado parcial: {self.stack[0]}")
-
+            if self.op.isalpha():
+                print("número ou caractere inválido")
 
 calc = RPN_calc()
