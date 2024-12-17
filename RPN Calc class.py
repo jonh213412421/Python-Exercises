@@ -53,19 +53,17 @@ class RPN_calc:
                         total /= float(num)
                         self.stack.clear()
                         self.stack.append(total)
-                        print(self.stack)
+                        print(f"resultado parcial: {self.stack[0]}")
                     else:
                         print("divisão por 0 não é permitido. Último número retirado")
                         self.stack.pop()
-                        print(self.stack)
+                        print(f"resultado parcial: {self.stack[0]}")
             if self.op == "**":
                 total = float(self.stack[0])
                 for num in self.stack[1:]:
                     total **= float(num)
                 self.stack.clear()
-                self.stack.append(total)
+                self.stack.append(f"resultado parcial: {self.stack[0]}")
 
 
 calc = RPN_calc()
-
-
