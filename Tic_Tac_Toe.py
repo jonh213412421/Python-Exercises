@@ -2,68 +2,78 @@ import time
 import tkinter as tk
 
 marcados = [False, False, False, False, False, False, False, False, False]
+minhas_marcacoes = [False, False, False, False, False, False, False, False, False]
 
 def jogo_da_velha():
 
 	def marcar_botao0():
-		global turno
 		global marcados
+		global minhas_marcacoes
 		button0.config(state="disabled")
 		button0.config(text="X")
 		marcados[0] = True
-		if marcados[1] == False:
-			button1.config(state="disabled")
-			button1.config(text="O")
-			marcados[1] = True
-		elif marcados[3] == False:
-			button3.config(state="disabled")
-			button3.config(text="O")
-			marcados[3] = True
-		elif marcados[4] == False:
-			button4.config(state="disabled")
-			button4.config(text="O")
-			marcados[4] = True
-		elif marcados[2] == False:
-			button2.config(state="disabled")
-			button2.config(text="O")
-			marcados[2] = True
+		minhas_marcacoes[0] = True
+		if marcados[2] == True:
+			if marcados[1] == False:
+				button1.config(state="disabled")
+				button1.config(text="O")
+				marcados[1] = True
+		if marcados[1] == True:
+			if marcados[2] == False:
+				button2.config(state="disabled")
+				button2.config(text="O")
+				marcados[2] = True
+		if marcados[3] == True:
+			if marcados[6] == False:
+				button6.config(state="disabled")
+				button6.config(text="O")
+				marcados[6] = True
+		if marcados[6] == True:
+			if marcados[3] == False:
+				button3.config(state="disabled")
+				button3.config(text="O")
+				marcados[3] = True
+		if marcados[4] == True:
+			if marcados[8] == False:
+				button8.config(state="disabled")
+				button8.config(text="O")
+				marcados[8] = True
+		if marcados[8] == True:
+			if marcados[4] == False:
+				button4.config(state="disabled")
+				button4.config(text="O")
+				marcados[4] = True
 		elif marcados[5] == False:
 			button5.config(state="disabled")
 			button5.config(text="O")
 			marcados[5] = True
-		elif marcados[6] == False:
-			button6.config(state="disabled")
-			button6.config(text="O")
-			marcados[6] = True
 		elif marcados[7] == False:
 			button7.config(state="disabled")
 			button7.config(text="O")
 			marcados[7] = True
-		elif marcados[8] == False:
-			button8.config(state="disabled")
-			button8.config(text="O")
-			marcados[8] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 		#root.destroy()
 		#jogo_da_velha()
 
 	def marcar_botao1():
-		global turno
+		global marcados
+		global minhas_marcacoes
 		button1.config(state="disabled")
 		button1.config(text="X")
 		marcados[1] = True
@@ -99,26 +109,26 @@ def jogo_da_velha():
 			button8.config(state="disabled")
 			button8.config(text="O")
 			marcados[8] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	def marcar_botao2():
-		global turno
 		global marcados
+		global minhas_marcacoes
 		button2.config(state="disabled")
 		button2.config(text="X")
 		marcados[2] = True
@@ -154,25 +164,26 @@ def jogo_da_velha():
 			button8.config(state="disabled")
 			button8.config(text="O")
 			marcados[8] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	def marcar_botao3():
-		global turno
+		global marcados
+		global minhas_marcacoes
 		button3.config(state="disabled")
 		button3.config(text="X")
 		marcados[3] = True
@@ -208,25 +219,26 @@ def jogo_da_velha():
 			button8.config(state="disabled")
 			button8.config(text="O")
 			marcados[8] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	def marcar_botao4():
-		global turno
+		global marcados
+		global minhas_marcacoes
 		button4.config(state="disabled")
 		button4.config(text="X")
 		marcados[4] = True
@@ -262,25 +274,26 @@ def jogo_da_velha():
 			button8.config(state="disabled")
 			button8.config(text="O")
 			marcados[8] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	def marcar_botao5():
-		global turno
+		global marcados
+		global minhas_marcacoes
 		button5.config(state="disabled")
 		button5.config(text="X")
 		marcados[5] = True
@@ -316,25 +329,26 @@ def jogo_da_velha():
 			button1.config(state="disabled")
 			button1.config(text="O")
 			marcados[1] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	def marcar_botao6():
-		global turno
+		global marcados
+		global minhas_marcacoes
 		button6.config(state="disabled")
 		button6.config(text="X")
 		marcados[6] = True
@@ -370,25 +384,26 @@ def jogo_da_velha():
 			button1.config(state="disabled")
 			button1.config(text="O")
 			marcados[1] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	def marcar_botao7():
-		global turno
+		global marcados
+		global minhas_marcacoes
 		button7.config(state="disabled")
 		button7.config(text="X")
 		marcados[7] = True
@@ -424,25 +439,26 @@ def jogo_da_velha():
 			button1.config(state="disabled")
 			button1.config(text="O")
 			marcados[1] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	def marcar_botao8():
-		global turno
+		global marcados
+		global minhas_marcacoes
 		button8.config(state="disabled")
 		button8.config(text="X")
 		marcados[8] = True
@@ -478,21 +494,21 @@ def jogo_da_velha():
 			button1.config(state="disabled")
 			button1.config(text="O")
 			marcados[1] = True
-		if marcados[0] == True and marcados[1] == True and marcados[2] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
 			print("você venceu!")
-		if marcados[3] == True and marcados[4] == True and marcados[5] == True:
+		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
 			print("você venceu!")
-		if marcados[6] == True and marcados[7] == True and marcados[8] == True:
+		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[3] == True and marcados[6] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
-		if marcados[1] == True and marcados[4] == True and marcados[7] == True:
+		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[5] == True and marcados[8] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[0] == True and marcados[4] == True and marcados[8] == True:
+		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
 			print("você venceu!")
-		if marcados[2] == True and marcados[4] == True and marcados[6] == True:
+		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
 			print("você venceu!")
 
 	root = tk.Tk()
