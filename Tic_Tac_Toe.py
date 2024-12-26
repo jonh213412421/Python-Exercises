@@ -1,10 +1,9 @@
-import time
 import tkinter as tk
 
 marcados = [False, False, False, False, False, False, False, False, False]
 minhas_marcacoes = [False, False, False, False, False, False, False, False, False]
 ganhou = False
-
+#se ganhou == False and marcados == True...
 def jogo_da_velha():
 	def janela_resultado(texto):
 		def novo_jogo(root2):
