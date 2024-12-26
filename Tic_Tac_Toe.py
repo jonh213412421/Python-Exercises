@@ -3,8 +3,26 @@ import tkinter as tk
 
 marcados = [False, False, False, False, False, False, False, False, False]
 minhas_marcacoes = [False, False, False, False, False, False, False, False, False]
+ganhou = False
 
 def jogo_da_velha():
+	def janela_resultado(texto):
+		def novo_jogo(root2):
+			root2.quit()
+			root2.destroy()
+			jogo_da_velha()
+
+		root2 = tk.Tk()
+		root2.geometry("800x640")
+
+		label = tk.Label(root2, text=texto)
+		label.pack(padx=20, pady=20)
+
+		botao_reset = tk.Button(root2, text="Reiniciar", command=lambda: novo_jogo(root2))
+		botao_reset.pack(padx=10, pady=10)
+		root.destroy()
+		root2.mainloop()
+
 
 	def marcar_botao0():
 		global marcados
@@ -53,23 +71,21 @@ def jogo_da_velha():
 			marcados[7] = True
 
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
-		#root.destroy()
-		#jogo_da_velha()
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao1():
 		global marcados
@@ -77,6 +93,7 @@ def jogo_da_velha():
 		button1.config(state="disabled")
 		button1.config(text="X")
 		marcados[1] = True
+		minhas_marcacoes[1] = True
 		if marcados[0] == False:
 			button0.config(state="disabled")
 			button0.config(text="O")
@@ -110,21 +127,21 @@ def jogo_da_velha():
 			button8.config(text="O")
 			marcados[8] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao2():
 		global marcados
@@ -132,6 +149,7 @@ def jogo_da_velha():
 		button2.config(state="disabled")
 		button2.config(text="X")
 		marcados[2] = True
+		minhas_marcacoes[2] = True
 		if marcados[1] == False:
 			button1.config(state="disabled")
 			button1.config(text="O")
@@ -165,21 +183,21 @@ def jogo_da_velha():
 			button8.config(text="O")
 			marcados[8] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao3():
 		global marcados
@@ -187,6 +205,7 @@ def jogo_da_velha():
 		button3.config(state="disabled")
 		button3.config(text="X")
 		marcados[3] = True
+		minhas_marcacoes[3] = True
 		if marcados[0] == False:
 			button0.config(state="disabled")
 			button0.config(text="O")
@@ -220,21 +239,21 @@ def jogo_da_velha():
 			button8.config(text="O")
 			marcados[8] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao4():
 		global marcados
@@ -242,6 +261,7 @@ def jogo_da_velha():
 		button4.config(state="disabled")
 		button4.config(text="X")
 		marcados[4] = True
+		minhas_marcacoes[4] = True
 		if marcados[5] == False:
 			button5.config(state="disabled")
 			button5.config(text="O")
@@ -275,21 +295,21 @@ def jogo_da_velha():
 			button8.config(text="O")
 			marcados[8] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao5():
 		global marcados
@@ -297,6 +317,7 @@ def jogo_da_velha():
 		button5.config(state="disabled")
 		button5.config(text="X")
 		marcados[5] = True
+		minhas_marcacoes[5] = True
 		if marcados[2] == False:
 			button2.config(state="disabled")
 			button2.config(text="O")
@@ -330,21 +351,21 @@ def jogo_da_velha():
 			button1.config(text="O")
 			marcados[1] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao6():
 		global marcados
@@ -352,6 +373,7 @@ def jogo_da_velha():
 		button6.config(state="disabled")
 		button6.config(text="X")
 		marcados[6] = True
+		minhas_marcacoes[6] = True
 		if marcados[3] == False:
 			button3.config(state="disabled")
 			button3.config(text="O")
@@ -385,21 +407,21 @@ def jogo_da_velha():
 			button1.config(text="O")
 			marcados[1] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao7():
 		global marcados
@@ -407,6 +429,7 @@ def jogo_da_velha():
 		button7.config(state="disabled")
 		button7.config(text="X")
 		marcados[7] = True
+		minhas_marcacoes[7] = True
 		if marcados[6] == False:
 			button6.config(state="disabled")
 			button6.config(text="O")
@@ -440,21 +463,21 @@ def jogo_da_velha():
 			button1.config(text="O")
 			marcados[1] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	def marcar_botao8():
 		global marcados
@@ -462,6 +485,7 @@ def jogo_da_velha():
 		button8.config(state="disabled")
 		button8.config(text="X")
 		marcados[8] = True
+		minhas_marcacoes[8] = True
 		if marcados[7] == False:
 			button7.config(state="disabled")
 			button7.config(text="O")
@@ -495,21 +519,21 @@ def jogo_da_velha():
 			button1.config(text="O")
 			marcados[1] = True
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
-			print("você venceu!")
+			janela_resultado("Você ganhou!")
 
 	root = tk.Tk()
 	root.geometry("800x640")
