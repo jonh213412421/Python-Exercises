@@ -5,7 +5,6 @@ minhas_marcacoes = [False, False, False, False, False, False, False, False, Fals
 marcacoes_computador = [False, False, False, False, False, False, False, False, False]
 vitoria_jogador = False
 vitoria_computador = False
-#se ganhou == False and marcados == True...
 
 def jogo_da_velha():
 	def movimento_computador():
@@ -51,7 +50,6 @@ def jogo_da_velha():
 				marcacoes_computador[5] = True
 		#terceira linha
 		elif ((minhas_marcacoes[6] == True and minhas_marcacoes[7] == True) or (minhas_marcacoes[7] == True and minhas_marcacoes[8] == True) or (minhas_marcacoes[6] == True and minhas_marcacoes[8] == True)) and (marcados[6] == False or marcados[7] == False or marcados[8] == False):
-			print("oi")
 			if marcados[7] == False:
 				button7.config(state="disabled")
 				button7.config(text="O")
@@ -69,7 +67,6 @@ def jogo_da_velha():
 				marcacoes_computador[8] = True
 		#diagonal principal
 		elif ((minhas_marcacoes[0] == True and minhas_marcacoes[4] == True) or (minhas_marcacoes[4] == True and minhas_marcacoes[8] == True) or (minhas_marcacoes[0] == True and minhas_marcacoes[8] == True)) and (marcados[0] == False or marcados[4] == False or marcados[8] == False):
-			print("oi")
 			if marcados[4] == False:
 				button4.config(state="disabled")
 				button4.config(text="O")
@@ -80,6 +77,74 @@ def jogo_da_velha():
 				button0.config(text="O")
 				marcados[0] = True
 				marcacoes_computador[0] = True
+			elif marcados[8] == False:
+				button8.config(state="disabled")
+				button8.config(text="O")
+				marcados[8] = True
+				marcacoes_computador[8] = True
+		# diagonal secundária
+		elif ((minhas_marcacoes[2] == True and minhas_marcacoes[4] == True) or (minhas_marcacoes[4] == True and minhas_marcacoes[6] == True) or (minhas_marcacoes[2] == True and minhas_marcacoes[6] == True)) and (marcados[2] == False or marcados[4] == False or marcados[6] == False):
+			if marcados[4] == False:
+				button4.config(state="disabled")
+				button4.config(text="O")
+				marcados[4] = True
+				marcacoes_computador[4] = True
+			elif marcados[2] == False:
+				button2.config(state="disabled")
+				button2.config(text="O")
+				marcados[2] = True
+				marcacoes_computador[2] = True
+			elif marcados[6] == False:
+				button6.config(state="disabled")
+				button6.config(text="O")
+				marcados[6] = True
+				marcacoes_computador[6] = True
+		# primeira coluna
+		elif ((minhas_marcacoes[0] == True and minhas_marcacoes[3] == True) or (minhas_marcacoes[3] == True and minhas_marcacoes[6] == True) or (minhas_marcacoes[0] == True and minhas_marcacoes[6] == True)) and (marcados[0] == False or marcados[3] == False or marcados[6] == False):
+			if marcados[3] == False:
+				button3.config(state="disabled")
+				button3.config(text="O")
+				marcados[3] = True
+				marcacoes_computador[3] = True
+			elif marcados[0] == False:
+				button0.config(state="disabled")
+				button0.config(text="O")
+				marcados[0] = True
+				marcacoes_computador[0] = True
+			elif marcados[6] == False:
+				button6.config(state="disabled")
+				button6.config(text="O")
+				marcados[6] = True
+				marcacoes_computador[6] = True
+		# segunda coluna
+		elif ((minhas_marcacoes[1] == True and minhas_marcacoes[4] == True) or (minhas_marcacoes[4] == True and minhas_marcacoes[7] == True) or (minhas_marcacoes[1] == True and minhas_marcacoes[7] == True)) and (marcados[1] == False or marcados[4] == False or marcados[7] == False):
+			if marcados[4] == False:
+				button4.config(state="disabled")
+				button4.config(text="O")
+				marcados[4] = True
+				marcacoes_computador[4] = True
+			elif marcados[1] == False:
+				button1.config(state="disabled")
+				button1.config(text="O")
+				marcados[1] = True
+				marcacoes_computador[1] = True
+			elif marcados[7] == False:
+				button7.config(state="disabled")
+				button7.config(text="O")
+				marcados[7] = True
+				marcacoes_computador[7] = True
+		# terceira coluna
+		elif ((minhas_marcacoes[2] == True and minhas_marcacoes[5] == True) or (minhas_marcacoes[5] == True and minhas_marcacoes[8] == True) or (minhas_marcacoes[2] == True and minhas_marcacoes[8] == True)) and (marcados[2] == False or marcados[5] == False or marcados[8] == False):
+			if marcados[5] == False:
+				button5.config(state="disabled")
+				button5.config(text="O")
+				marcados[5] = True
+				marcacoes_computador[5] = True
+			elif marcados[2] == False:
+				button2.config(state="disabled")
+				button2.config(text="O")
+				marcados[2] = True
+				marcacoes_computador[2] = True
 			elif marcados[8] == False:
 				button8.config(state="disabled")
 				button8.config(text="O")
@@ -108,7 +173,6 @@ def jogo_da_velha():
 				marcacoes_computador[5] = True
 		#diagonal principal
 		elif (minhas_marcacoes[0] == False and minhas_marcacoes[4] == False and minhas_marcacoes[8] == False) and (marcados[0] == False or marcados[4] == False or marcados[8] == False):
-			print("2")
 			if marcados[4] == False:
 				button4.config(state="disabled")
 				button4.config(text="O")
@@ -227,59 +291,129 @@ def jogo_da_velha():
 				marcados[8] = True
 				marcacoes_computador[8] = True
 
+		elif marcados[5] == False:
+			button5.config(state="disabled")
+			button5.config(text="O")
+			marcados[5] = True
+			marcacoes_computador[5] = True
+		elif marcados[3] == False:
+			button3.config(state="disabled")
+			button3.config(text="O")
+			marcados[3] = True
+			marcacoes_computador[3] = True
+		elif marcados[1] == False:
+			button1.config(state="disabled")
+			button1.config(text="O")
+			marcados[1] = True
+			marcacoes_computador[1] = True
+		elif marcados[2] == False:
+			button2.config(state="disabled")
+			button2.config(text="O")
+			marcados[2] = True
+			marcacoes_computador[2] = True
+		elif marcados[0] == False:
+			button0.config(state="disabled")
+			button0.config(text="O")
+			marcados[0] = True
+			marcacoes_computador[0] = True
+		elif marcados[4] == False:
+			button4.config(state="disabled")
+			button4.config(text="O")
+			marcados[4] = True
+			marcacoes_computador[4] = True
+		elif marcados[6] == False:
+			button6.config(state="disabled")
+			button6.config(text="O")
+			marcados[6] = True
+			marcacoes_computador[6] = True
+		elif marcados[7] == False:
+			button7.config(state="disabled")
+			button7.config(text="O")
+			marcados[7] = True
+			marcacoes_computador[7] = True
+		elif marcados[8] == False:
+			button8.config(state="disabled")
+			button8.config(text="O")
+			marcados[8] = True
+			marcacoes_computador[8] = True
+
 	def checar_empate():
+		global vitoria_jogador
+		global vitoria_computador
+		global marcados
+		print(vitoria_computador)
+		print(vitoria_jogador)
+		print(marcados)
 		if vitoria_computador == False and vitoria_jogador == False and marcados == [True, True, True, True, True, True, True, True, True]:
 			janela_resultado("Empate!")
 
 	def checar_vitoria_jogador():
 		global vitoria_jogador
+		global minhas_marcacoes
 		if minhas_marcacoes[0] == True and minhas_marcacoes[1] == True and minhas_marcacoes[2] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[3] == True and minhas_marcacoes[4] == True and minhas_marcacoes[5] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[6] == True and minhas_marcacoes[7] == True and minhas_marcacoes[8] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[3] == True and minhas_marcacoes[6] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[1] == True and minhas_marcacoes[4] == True and minhas_marcacoes[7] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[5] == True and minhas_marcacoes[8] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[0] == True and minhas_marcacoes[4] == True and minhas_marcacoes[8] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
 		if minhas_marcacoes[2] == True and minhas_marcacoes[4] == True and minhas_marcacoes[6] == True:
+			vitoria_jogador = True
 			janela_resultado("Você ganhou!")
-
-		vitoria_jogador = True
 
 	def checar_vitoria_computador():
 		global vitoria_computador
+		global marcacoes_computador
 		if marcacoes_computador[0] == True and marcacoes_computador[1] == True and marcacoes_computador[2] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 		if marcacoes_computador[3] == True and marcacoes_computador[4] == True and marcacoes_computador[5] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 		if marcacoes_computador[6] == True and marcacoes_computador[7] == True and marcacoes_computador[8] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 		if marcacoes_computador[0] == True and marcacoes_computador[3] == True and marcacoes_computador[6] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 		if marcacoes_computador[1] == True and marcacoes_computador[4] == True and marcacoes_computador[7] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 		if marcacoes_computador[2] == True and marcacoes_computador[5] == True and marcacoes_computador[8] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 		if marcacoes_computador[0] == True and marcacoes_computador[4] == True and marcacoes_computador[8] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 		if marcacoes_computador[2] == True and marcacoes_computador[4] == True and marcacoes_computador[6] == True:
+			vitoria_computador = True
 			janela_resultado("Você perdeu!")
-
-		vitoria_computador = True
 
 	def janela_resultado(texto):
 		def novo_jogo(root2):
 			global marcados
 			global minhas_marcacoes
 			global marcacoes_computador
+			global vitoria_computador
+			global vitoria_jogador
 			root2.quit()
 			root2.destroy()
+			vitoria_computador = False
+			vitoria_jogador = False
 			marcados = [False, False, False, False, False, False, False, False, False]
 			minhas_marcacoes = [False, False, False, False, False, False, False, False, False]
 			marcacoes_computador = [False, False, False, False, False, False, False, False, False]
