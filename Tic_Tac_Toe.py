@@ -1,12 +1,17 @@
 import tkinter as tk
+import sys
 
 marcados = [False, False, False, False, False, False, False, False, False]
 minhas_marcacoes = [False, False, False, False, False, False, False, False, False]
 marcacoes_computador = [False, False, False, False, False, False, False, False, False]
 vitoria_jogador = False
 vitoria_computador = False
+#se ganhou == False and marcados == True...
 
 def jogo_da_velha():
+	def sair():
+		sys.exit()
+
 	def movimento_computador():
 		global marcados
 		global minhas_marcacoes
@@ -403,6 +408,21 @@ def jogo_da_velha():
 			vitoria_computador = True
 			janela_resultado("Você perdeu!")
 
+	def novo_jogo(root):
+		global marcados
+		global minhas_marcacoes
+		global marcacoes_computador
+		global vitoria_computador
+		global vitoria_jogador
+		root.quit()
+		root.destroy()
+		vitoria_computador = False
+		vitoria_jogador = False
+		marcados = [False, False, False, False, False, False, False, False, False]
+		minhas_marcacoes = [False, False, False, False, False, False, False, False, False]
+		marcacoes_computador = [False, False, False, False, False, False, False, False, False]
+		jogo_da_velha()
+
 	def janela_resultado(texto):
 		def novo_jogo(root2):
 			global marcados
@@ -429,7 +449,6 @@ def jogo_da_velha():
 		botao_reset.pack(padx=10, pady=10)
 		root.destroy()
 		root2.mainloop()
-
 
 	def marcar_botao0():
 		global marcados
@@ -543,32 +562,41 @@ def jogo_da_velha():
 
 	root = tk.Tk()
 	root.geometry("800x640")
+	menu_bar = tk.Menu(root)
+	menu_menu = tk.Menu(menu_bar, tearoff=0)
+	menu_menu.add_command(label="Novo Jogo", command=lambda: novo_jogo(root))
+	menu_menu.add_command(label="sair", command=sair)
+	menu_sobre = tk.Menu(menu_bar, tearoff=0)
+	menu_sobre.add_command(label="sair", command=sair)
+	menu_bar.add_cascade(label="Menu", menu=menu_menu)
+	menu_bar.add_cascade(label="Sobre", menu=menu_sobre)
+	root.config(menu=menu_bar)
 
-	button0 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao0)
+	button0 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao0)
 	button0.grid(column=1, row=1)
 
-	button1 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao1)
+	button1 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao1)
 	button1.grid(column=2, row=1)
 
-	button2 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao2)
+	button2 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao2)
 	button2.grid(column=3, row=1)
 
-	button3 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao3)
+	button3 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao3)
 	button3.grid(column=1, row=2)
 
-	button4 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao4)
+	button4 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao4)
 	button4.grid(column=2, row=2)
 
-	button5 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao5)
+	button5 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao5)
 	button5.grid(column=3, row=2)
 
-	button6 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao6)
+	button6 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao6)
 	button6.grid(column=1, row=3)
 
-	button7 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao7)
+	button7 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao7)
 	button7.grid(column=2, row=3)
 
-	button8 = tk.Button(root, text="", width=20, height=10, font= ("arial", 16), command=marcar_botao8)
+	button8 = tk.Button(root, text="", width=20, height=10, font=("arial", 16), command=marcar_botao8)
 	button8.grid(column=3, row=3)
 
 	root.mainloop()
