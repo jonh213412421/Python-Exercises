@@ -24,20 +24,12 @@ if sys.argv[1] == "encrypt" and len(sys.argv) == 2:
 if sys.argv[1] == "encrypt" and len(sys.argv) > 2:
     texto = ''.join(sys.argv[2:])
     encrypt.encrypt(texto)
-    
-if sys.argv[1] == "decrypt_a" and len(sys.argv) == 2:
-    caminho_chave = filedialog.askopenfile(title="escolha o caminho da chave")
-    caminho_cifra = filedialog.askopenfile(title="escolha o caminho da cifra")
-    with open(caminho_chave, "r") as f:
-        chave = f.read()
-        f.close()
-    with open(caminho_cifra, "r") as f:
-        cifra = f.read()
-        f.close()
-    decrypt.decrypt(chave, cifra)
-if sys.argv[1] == "decrypt_s" and len(sys.argv) == 2:
-    chave = sys.argv[2]
-    texto = sys.argv[3]
-    encrypt.encrypt(texto)
-if sys.argv[1] == "decrypt_s" and len(sys.argv) > 2:
-    print("argumentos incorretos")
+if sys.argv[1] == "encrypt" and len(sys.argv) < 2:
+    print("Erro! Por favor, revise os argumentos.")
+
+if sys.argv[1] == "decrypt" and len(sys.argv) == 2:
+    caminho_chave = filedialog.askopenfile(title="escolha o caminho da chave").name
+    caminho_cifra = filedialog.askopenfile(title="escolha o caminho da cifra").name
+    decrypt.decrypt(caminho_chave, caminho_cifra)
+if sys.argv[1] == "decrypt" and len(sys.argv) != 2:
+    print("Erro! Por favor, revise os argumentos.")
