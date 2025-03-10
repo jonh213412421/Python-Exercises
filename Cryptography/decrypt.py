@@ -1,16 +1,13 @@
 import os
-#change
-import random
 
-def decrypt(chave: str, cifra: str) -> None:
+def decrypt(caminho_cifra: str, caminho_chave: str) -> None:
+
     mensagem = ""
-    dir_chave = os.path.join(os.getcwd(), "chave")
-    dir_cifra = os.path.join(os.getcwd(), "cifra")
     dir_mensagem = os.path.join(os.getcwd(), "mensagens")
-    with open(os.path.join(dir_chave, f"{chave}.enc"), "r") as f:
+    with open(caminho_chave, "r") as f:
         chave2 = f.read()
         f.close()
-    with open(os.path.join(dir_cifra, f"{cifra}.enc"), "r") as f:
+    with open(caminho_cifra, "r") as f:
         cifra = f.read()
         f.close()
     xor = ''.join(str(int(chave2[i]) ^ int(cifra[i])) for i in range(len(chave2)))
@@ -24,17 +21,12 @@ def decrypt(chave: str, cifra: str) -> None:
     while not gravado:
         try:
             print(i)
-            if os.path.exists(os.path.join(dir_mensagem, f"mensagem{i}.enc")):
+            if os.path.exists(os.path.join(dir_mensagem, f"mensagem{i}.txt")):
                 i = i + 1
             else:
-                with open(os.path.join(dir_chave, f"chave{i}.enc"), "w") as f:
+                with open(os.path.join(dir_mensagem, f"mensagem{i}.txt"), "w") as f:
                     f.write(str(mensagem))
-                    f.close()
-                with open(os.path.join(dir_cifra, f"cifra{i}.enc"), "w") as f:
-                    f.write(str(xor))
                     f.close()
                 gravado = True
         except:
             print("Erro!")
-
-#decrypt("chave1", "cifra1")
