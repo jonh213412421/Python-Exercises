@@ -29,6 +29,7 @@ def encrypt(palavra: str) -> None:
                     f.write(str(xor))
                     f.close()
                 gravado = True
+            print("Processo concluído com êxito!")
         except:
             print("Erro!")
     print(f"chave: {chave_binario}")
