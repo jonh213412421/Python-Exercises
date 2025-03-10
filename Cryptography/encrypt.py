@@ -1,5 +1,4 @@
 import os
-#change
 import random
 
 def encrypt(palavra: str) -> None:
@@ -34,6 +33,3 @@ def encrypt(palavra: str) -> None:
             print("Erro!")
     print(f"chave: {chave_binario}")
     print(f"cifra: {xor}")
-
-
-#encrypt("teste")
