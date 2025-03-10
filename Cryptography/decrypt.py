@@ -28,5 +28,6 @@ def decrypt(caminho_cifra: str, caminho_chave: str) -> None:
                     f.write(str(mensagem))
                     f.close()
                 gravado = True
+            print("Processo concluído com êxito!")
         except:
             print("Erro!")
