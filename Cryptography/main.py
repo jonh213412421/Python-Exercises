@@ -11,10 +11,13 @@ if not os.path.exists(os.path.join(os.getcwd(), "cifra")):
 if not os.path.exists(os.path.join(os.getcwd(), "mensagens")):
     os.mkdir(os.path.join(os.getcwd(), "mensagens"))
 
+print(sys.argv)
+
 if len(sys.argv) == 0:
     print("funções:\n "
           "encrypt (mensagem)/(caso não tenha mensagem, ele abrirá um dialog para carregar um documento de texto) -> criptografa mensagem\n"
-          "decrypt (mensagem)/(caso não tenha mensagem, ele abrirá um dialog para carregar um arquivo criptografado) -> descriptografa mensagem\n")
+          "decrypt (mensagem)/(caso não tenha mensagem, ele abrirá um dialog para carregar um arquivo criptografado) -> descriptografa mensagem\n"
+          "Importante: delete os arquivos originais assim que possível. Guarde as chaves em um lugar seguro.\n")
 if sys.argv[1] == "encrypt" and len(sys.argv) == 2:
     caminho_arquivo = filedialog.askopenfile(title="escolha o caminho do arquivo")
     with open(caminho_arquivo, "r") as f:
