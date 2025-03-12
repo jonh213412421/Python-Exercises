@@ -15,18 +15,18 @@ def encrypt(palavra: str) -> None:
         os.mkdir(dir_cifra)
     gravado = False
     i = 0
-    xor = ''.join(str(int(palavra[i]) ^ int(chave_binario[i])) for i in range(len(palavra)))
+    xor = ''.join('1' if palavra[i] != chave_binario[i] else '0' for i in range(len(palavra)))
     while not gravado:
         try:
             print(i)
             if os.path.exists(os.path.join(dir_chave, f"chave{i}.enc")):
                 i = i + 1
             else:
-                with open(os.path.join(dir_chave, f"chave{i}.enc"), "w") as f:
-                    f.write(str(chave_binario))
+                with open(os.path.join(dir_chave, f"chave{i}.enc"), "wb") as f:
+                    f.write(chave_binario.encode())
                     f.close()
-                with open(os.path.join(dir_cifra, f"cifra{i}.enc"), "w") as f:
-                    f.write(str(xor))
+                with open(os.path.join(dir_cifra, f"cifra{i}.enc"), "wb") as f:
+                    f.write(xor.encode())
                     f.close()
                 gravado = True
             print("Processo concluído com êxito!")
@@ -34,3 +34,4 @@ def encrypt(palavra: str) -> None:
             print("Erro!")
     print(f"chave: {chave_binario}")
     print(f"cifra: {xor}")
+    
